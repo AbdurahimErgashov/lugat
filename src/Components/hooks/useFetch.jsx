@@ -7,7 +7,7 @@ const useFetch = (endpoint) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // console.log(`So'rov boshlanmoqda: ${process.env.REACT_APP_API_BASE_URL}${endpoint}`);
+      console.log(`So'rov boshlanmoqda: ${process.env.REACT_APP_API_BASE_URL}${endpoint}`);
       try {
         const url = `${process.env.REACT_APP_API_BASE_URL}${endpoint}`;
         const response = await fetch(url);

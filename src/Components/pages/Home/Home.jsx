@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { SliderContainer, Slide, Title, Image, FoydaliSaytTitle, FoydaliSaytlarCard, FoydaliSaytlar, FoydaliSaytlarCardimg, Cards, FoydaliSaytlarCardTitle } from "./styled";
 import { Carousel } from "antd";
 import useFetch from "../../hooks/useFetch"; // Use custom fetch hook
@@ -24,7 +24,6 @@ function Home() {
 
   return (
     <>
-      {/* Slider qismi */}
       <SliderContainer>
         <Carousel {...settings}>
           {sliderData.map((slider) => (
