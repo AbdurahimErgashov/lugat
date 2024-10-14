@@ -12,23 +12,27 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 250px;
+  @media (max-width: 1280px) {
+    padding: 10px 0;
+  }
 `;
 
-const FooterSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  /* padding: 20px; */
+// const FooterSection = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   flex-wrap: wrap;
+//   /* padding: 20px; */
   
-`;
+// `;
 
 const FooterColumn = styled.div`
   display: flex;
   margin: 0 20px;
   flex-wrap: wrap;
-  width: ${({ icons }) => (icons ? '70%' : '400px')};
-  text-align: left;
-  flex-direction: ${({ icons }) => (icons ? 'row' : 'column')};
+  width: 70%;
+  /* text-align: left; */
+  /* flex-direction: ${({ icons }) => (icons ? 'row' : '')}; */
   justify-content: ${({ icons }) => (icons ? 'space-between' : ' ')};
   h3 {
     color: #fff;
@@ -38,21 +42,25 @@ const FooterColumn = styled.div`
   ul {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   ul li {
     margin-bottom: 10px;
-    color: #bbb;
+    color: #fff;
     display: flex;
     align-items: center;
-
+    
     svg {
       margin-right: 10px;
     }
   }
 
   ul li a {
-    color: #bbb;
+   color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
 
@@ -61,26 +69,8 @@ const FooterColumn = styled.div`
     }
   }
 
-  input {
-    padding: 10px;
-    border: none;
-    outline: none;
-    border-radius: 5px 0 0 5px;
-    margin-right: -5px;
-  }
-
-  button {
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #0056b3;
-    }
+  @media (max-width: 1280px) {
+    margin: 0 5px;
   }
 `;
 
@@ -93,7 +83,7 @@ const ContactItem = styled.div`
   align-items: center;
   margin-bottom: 10px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   padding: 5px 0;
   svg {
     color: #fff;
@@ -111,6 +101,16 @@ const ContactItem = styled.div`
 const Footer = () => {
   return (
     <FooterContainer>
+           <FooterColumn icons={true}>
+          <ul>
+            <li><Links href="/">Bosh Sahifa</Links></li>
+            <li><Links href="/team">Ilmiy Jamoa</Links></li>
+            <li><Links href="/publications">Nashirlar</Links></li>
+            <li><Links href="/statistics">Statistik Tahlil</Links></li>
+            <li><Links href="/dictionaries">Lugat</Links></li>
+            <li><Links href="/contact">Bog'lanish</Links></li>
+          </ul>
+        </FooterColumn>
         <FooterColumn icons={true}>
           <ContactItem icon=' '>
             <FontAwesomeIcon icon={faPhone} size="2x" />
@@ -125,41 +125,7 @@ const Footer = () => {
             <div>203 Fake St. Mountain View, San Francisco, California, USA</div>
           </ContactItem>
         </FooterColumn>
-      <FooterSection>
-        <FooterColumn>
-          <h3>About</h3>
-          <ul>
-            <li><Links href="#">Our Story</Links></li>
-            <li><Links href="#">Awards</Links></li>
-            <li><Links href="#">Our Team</Links></li>
-            <li><Links href="#">Career</Links></li>
-          </ul>
-        </FooterColumn>
-        <FooterColumn>
-          <h3>Company</h3>
-          <ul>
-            <li><Links href="#">Our Services</Links></li>
-            <li><Links href="#">Clients</Links></li>
-            <li><Links href="#">Contact</Links></li>
-            <li><Links href="#">Press</Links></li>
-          </ul>
-        </FooterColumn>
-        <FooterColumn>
-          <h3>Resources</h3>
-          <ul>
-            <li><Links href="#">Blog</Links></li>
-            <li><Links href="#">Newsletter</Links></li>
-            <li><Links href="#">Privacy Policy</Links></li>
-          </ul>
-        </FooterColumn>
-        <FooterColumn>
-          <h3>Subscribe</h3>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <input type="email" placeholder="Enter email address" />
-            <button>Subscribe</button>
-          </div>
-        </FooterColumn>
-      </FooterSection>
+   
      
     </FooterContainer>
   );

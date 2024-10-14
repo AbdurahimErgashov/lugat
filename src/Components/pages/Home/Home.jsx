@@ -24,6 +24,7 @@ function Home() {
 
   return (
     <>
+      {/* Slider qismi */}
       <SliderContainer>
         <Carousel {...settings}>
           {sliderData.map((slider) => (

@@ -10,6 +10,27 @@ export const Container = styled.div`
   overflow-y: hidden;
   color: ${({ darkMode }) => darkMode ? '#f1f1f1' : '#333'};
   position: relative;
+  @media (max-width: 1280px){
+    margin: 7.5% auto;
+  }
+  @media (max-width: 900px){
+    margin: 10% auto;
+  }
+  @media (max-width: 650px){
+    margin: 12.5% auto;
+  }
+  @media (max-width: 540px){
+    margin: 15% auto;
+  }
+  @media (max-width: 440px){
+    margin: 17.5% auto;
+  }
+  @media (max-width: 490px){
+    margin: 20% auto;
+  }
+  @media (max-width: 490px){
+    margin: 22.5% auto;
+  }
 `;
 
 export const Header = styled.h1`
@@ -80,7 +101,8 @@ export const Result = styled.div`
   padding: 0;
   height: ${props => (props.isVisible ? '60vh' : '0')};
   max-height: ${props => (props.isVisible ? '60vh' : '0')}; /* max-height ni kerakli qiymatga o'zgartiring */
-
+  display: flex ;
+  flex-wrap: wrap;
   border-radius: 10px;
   opacity: ${props => (props.isVisible ? '1' : '0')};
   transform: ${props => (props.isVisible ? 'translateY(0)' : 'translateY(-20px)')};
@@ -92,7 +114,17 @@ export const Result = styled.div`
     font-size: 34px;
     color: inherit;
   }
-
+.divv{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  .mart{
+    @media (max-width: 1715px) {
+      margin-top: 15px;
+    }
+  }
+}
   p {
     margin-top: 25px;
     font-size: 19px;

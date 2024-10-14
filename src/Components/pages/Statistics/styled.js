@@ -9,6 +9,9 @@ export const ChartContainer = styled.div`
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Kattaroq soya */
   border-radius: 20px;
   margin-top: 6%;
+  @media (max-width: 1000px){
+    margin: 120px auto ;
+  }
 `;
 
 export const LoadingMessage = styled.p`

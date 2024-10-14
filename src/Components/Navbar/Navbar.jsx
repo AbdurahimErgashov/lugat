@@ -9,6 +9,9 @@ import {
   Dropdown,
   DropdownContent,
   DropdownLink,
+  BurgerIcon,
+  BurgerIcon1,
+  MobileMenu,
 } from "./styled";
 import Logos from "../../assets/img/gerb-flag.619c9b3.png";
 
@@ -17,6 +20,7 @@ const Navbar = () => {
   const [isTilshunoslikDropdownOpen, setTilshunoslikDropdownOpen] =
     useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,66 +48,57 @@ const Navbar = () => {
     setLoyihaDropdownOpen(false);
     setTilshunoslikDropdownOpen(false);
   };
+
   const handleReload = () => {
     window.location.reload();
   };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+  const closeModal = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <NavbarContainer isScrolled={isScrolled}>
       <LogoContainer onClick={handleReload}>
         <Logo src={Logos} alt="Logo" />
         <Title isScrolled={isScrolled}>O'ZBEK TILI DEALEKTAL KORPUSI</Title>
       </LogoContainer>
-      <NavLinks>
+      <BurgerIcon isScrolled={isScrolled} onClick={toggleMobileMenu}>☰ </BurgerIcon>
+      <NavLinks isMobileMenuOpen={isMobileMenuOpen}>
+      <BurgerIcon1 onClick={closeModal}>×</BurgerIcon1>
+        <div className="div">
         <StyledLink href="/" isScrolled={isScrolled}>
           Bosh sahifa
         </StyledLink>
         <Dropdown>
-          <StyledLink
-            href="#"
-            onClick={handleLoyihaClick}
-            isScrolled={isScrolled}
-           
-          >
+          <StyledLink href="#" onClick={handleLoyihaClick} isScrolled={isScrolled}>
             Loyiha haqida
           </StyledLink>
-          <DropdownContent
-            isOpen={isLoyihaDropdownOpen}
-            isScrolled={isScrolled}
-          >
-            <DropdownLink
-              href="/team"
-              onClick={closeDropdowns}
-              isScrolled={isScrolled}
-              left =' '
-            >
+          <DropdownContent isOpen={isLoyihaDropdownOpen} isScrolled={isScrolled}>
+            <DropdownLink href="/team" onClick={closeDropdowns} isScrolled={isScrolled}>
               Ilmiy jamoa
             </DropdownLink>
-            <DropdownLink
-              href="/publications"
-              onClick={closeDropdowns}
-              isScrolled={isScrolled}
-              left=' '
-            >
+            <DropdownLink href="/publications" onClick={closeDropdowns} isScrolled={isScrolled}>
               Nashirlar
             </DropdownLink>
           </DropdownContent>
         </Dropdown>
-        <StyledLink
-              href="/statistics"
-              onClick={closeDropdowns}
-              isScrolled={isScrolled}
-            >
-              Statistik tahlil
-            </StyledLink>
+        <StyledLink href="/statistics" onClick={closeDropdowns} isScrolled={isScrolled}>
+          Statistik tahlil
+        </StyledLink>
         <StyledLink href="/dictionaries" isScrolled={isScrolled}>
           Lug'at
         </StyledLink>
         <StyledLink href="/news" isScrolled={isScrolled}>
           Yangiliklar
         </StyledLink>
-        <StyledLink right=' ' href="/contact" isScrolled={isScrolled}>
+        <StyledLink href="/contact" isScrolled={isScrolled}>
           Bog'lanish
         </StyledLink>
+        </div>
       </NavLinks>
     </NavbarContainer>
   );

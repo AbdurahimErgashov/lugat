@@ -287,14 +287,16 @@ function Dictionaries() {
         </InputContainer>
 
         <Result darkMode={darkMode} isVisible={isResultVisible}>
-          <div style={{ display: "flex" }}>
+          <div className="divv" style={{ display: "flex" }}>
             <div
               style={{
-                width: "50%",
+                width: "100%",
+                maxWidth:'700px',
                 border: "1px solid black",
                 borderRadius: "24px",
                 padding: "0 25px",
                 marginRight: "5px",
+                
               }}
             >
               <h3>SO'Z</h3>
@@ -316,11 +318,14 @@ function Dictionaries() {
             </div>
             <div
               style={{
-                width: "50%",
+                width: "100%",
+                maxWidth:'700px',
                 border: "1px solid black",
                 borderRadius: "24px",
                 padding: "0 25px",
+                
               }}
+              className="mart"
             >
               <h3>Gaplar</h3>
               {filteredSentences.length > 0 ? (
